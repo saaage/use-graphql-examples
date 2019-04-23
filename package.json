@@ -1,6 +1,6 @@
 {
   "name": "use-graphql-examples",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
@@ -8,32 +8,25 @@
     "graphql": "^14.2.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
-    "react-apollo-hooks": "^0.4.4",
+    "react-apollo-hooks": "^0.4.5",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "styled-components": "^4.2.0"
   },
+  "scripts": {
+    "start": "react-scripts start"
+  },
   "devDependencies": {
     "eslint-plugin-react-hooks": "^1.5.1",
-    "react-cosmos": "^4.8.0-alpha.3",
     "react-cosmos-apollo-proxy": "^4.6.1",
     "react-cosmos-router-proxy": "^4.6.1",
     "react-cosmos-wrapper-proxy": "^1.4.0"
   },
-  "scripts": {
-    "cosmos": "NODE_PATH=src/ cosmos --config cosmos-next.config.js",
-    "start": "react-scripts start"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

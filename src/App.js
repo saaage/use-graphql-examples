@@ -1,39 +1,41 @@
 import React from 'react'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import styled from 'styled-components'
+import { Link, Route, Switch } from 'react-router-dom'
+import SayHello from 'SayHello'
+import FilmPage from 'FilmPage'
+import c3po from 'assets/c3po.png'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Query
-        query={gql`
-          query {
-            allFilms {
-              films {
-                title
-                id
-                releaseDate
-                characterConnection {
-                  characters {
-                    name
-                    id
-                  }
-                }
-              }
-            }
-          }
-        `}
-      >
-        {({ data, error, loading }) => {
-          console.log(data, error, loading)
-          return <p>"hello world"</p>
+    <AppRoot>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end'
         }}
-      </Query>
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+      >
+        {/* eslint-disable-next-line */}
+        <Link to="/hello">👋</Link>
+
+        <span style={{ width: 24 }} />
+
+        {/* eslint-disable-next-line */}
+        <Link to="/film">
+          <img src={c3po} alt="C3PO" style={{ height: 24, width: 24 }} />
+        </Link>
+      </div>
+
+      <Switch>
+        <Route path="/hello" component={SayHello} />
+        <Route path="/film" component={FilmPage} />
+      </Switch>
+    </AppRoot>
   )
 }
-
+const AppRoot = styled.div.withConfig({ displayName: 'App' })`
+  height: 100vh;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+`
 export default App

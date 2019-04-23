@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost'
 
 export const client = new ApolloClient({
-  uri: 'http://localhost:58609'
+  uri: 'http://localhost:55792/graphql'
 })
