@@ -8,6 +8,7 @@
     "graphql": "^14.2.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
+    "react-apollo-hooks": "^0.4.4",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "styled-components": "^4.2.0"
@@ -20,8 +21,8 @@
     "react-cosmos-wrapper-proxy": "^1.4.0"
   },
   "scripts": {
-    "cosmos": "NODE_PATH=src/:src/utils cosmos --config cosmos-next.config.js",
-    "start": "NODE_PATH=src/:src/utils react-scripts start"
+    "cosmos": "NODE_PATH=src/ cosmos --config cosmos-next.config.js",
+    "start": "react-scripts start"
   },
   "browserslist": {
     "production": [
