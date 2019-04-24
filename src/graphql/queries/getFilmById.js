@@ -5,6 +5,7 @@ export default gql`
     film(id: $id) {
       title
       releaseDate
+      director
       characterConnection {
         edges {
           node {

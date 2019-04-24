@@ -36,8 +36,22 @@ const FilmInfo = props => {
     return <CharacterCard key={id} {...c.node} />
   })
 
+  const { releaseDate, director } = data.film
+
   return (
     <FilmInfoRoot>
+      <b>Release Date</b>
+
+      <p style={{ marginLeft: 16 }}>{releaseDate}</p>
+
+      <Space value="one-and-half" />
+
+      <b>Director</b>
+
+      <p style={{ marginLeft: 16 }}>{director}</p>
+
+      <Space value="one-and-half" />
+
       <b>Cast ({characters.length})</b>
 
       <Space value="one" />
