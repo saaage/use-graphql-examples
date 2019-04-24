@@ -11,7 +11,7 @@ import Space from 'Space'
 class FilmPage extends React.Component {
   state = {
     title: '',
-    id: null
+    id: ''
   }
 
   componentDidMount() {
@@ -29,22 +29,16 @@ class FilmPage extends React.Component {
     }
   }
 
-  updateMovieId = (id, title) => {
+  updateActiveMovie = (id, title) => {
     this.setState({ id, title })
   }
 
   render() {
     const { title, id } = this.state
-    const activeFilm = id !== null && id !== ''
+    const activeFilm = id !== ''
 
     return (
       <>
-        {title !== '' && <h1 style={{ textAlign: 'center' }}>{title}</h1>}
-
-        {!activeFilm && (
-          <h1 style={{ textAlign: 'center' }}>please select a film</h1>
-        )}
-
         <Query query={GET_ALL_FILMS}>
           {({ data, error, loading }) => {
             if (error) {
@@ -54,11 +48,21 @@ class FilmPage extends React.Component {
             if (loading) return null
 
             return (
-              <MovieSelect
-                activeId={id}
-                updateMovieId={this.updateMovieId}
-                films={data.allFilms.edges}
-              />
+              <>
+                {title !== '' && (
+                  <h1 style={{ textAlign: 'center' }}>{title}</h1>
+                )}
+
+                {!activeFilm && (
+                  <h1 style={{ textAlign: 'center' }}>please select a film</h1>
+                )}
+
+                <MovieSelect
+                  activeId={id}
+                  updateActiveMovie={this.updateActiveMovie}
+                  films={data.allFilms.edges}
+                />
+              </>
             )
           }}
         </Query>

@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-// import useQuery from 'react-apollo-hooks'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 
 const MovieSelect = props => {
-  const { activeId, updateMovieId, films } = props
+  const { activeId, updateActiveMovie, films } = props
 
   const options = films.map(f => {
     return (
@@ -18,12 +17,12 @@ const MovieSelect = props => {
   return (
     <MovieSelectRoot>
       <Select
-        value={activeId === null ? '' : activeId}
+        value={activeId}
         onChange={e => {
           const film = films.find(f => f.node.id === e.target.value) || {
             node: { title: '' }
           }
-          updateMovieId(e.target.value, film.node.title)
+          updateActiveMovie(e.target.value, film.node.title)
         }}
         style={{ minWidth: 250 }}
       >
